@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-data-science-dask-rapids
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubernetes-data-science-dask-rapids
+  template:
+    metadata:
+      labels:
+        app: kubernetes-data-science-dask-rapids
+    spec:
+      containers:
+      - image: rapidsai/rapidsai:21.10-cuda11.4-runtime-ubuntu20.04-py3.8 kubernetes-dask-rapids
+        name: dask-rapids
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubernetes-data-science-dask-rapids
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  type: ClusterIP  
+  ports:
+  - name: "kubernetes-data-science-dask-rapids"
+    port: 8080
+  selector:
+    app: kubernetes-data-science-dask-rapids
