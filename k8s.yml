@@ -28,6 +28,6 @@ spec:
   type: ClusterIP  
   ports:
   - name: "kubernetes-data-science-dask-rapids"
-    port: 8080
+    port: 8888
   selector:
     app: kubernetes-data-science-dask-rapids
