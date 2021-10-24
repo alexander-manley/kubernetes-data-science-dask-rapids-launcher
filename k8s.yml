@@ -13,7 +13,7 @@ spec:
         app: kubernetes-data-science-dask-rapids
     spec:
       containers:
-      - image: rapidsai/rapidsai:21.10-cuda11.4-runtime-ubuntu20.04-py3.8 kubernetes-dask-rapids
+      - image: rapidsai/rapidsai:21.10-cuda11.4-runtime-ubuntu20.04-py3.8
         name: dask-rapids
 
 ---
